@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko" class="h-100" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ORGANICO | admin</title>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="../css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+  <link rel="stylesheet" href="../css/admin.css" th:href="@{/css/items.css}">
+  <link rel="icon" type="image/x-icon" href="../img/favicon2.ico">
+  <script src="../../static/js/script.js" th:src="@{/js/script.js}"></script>
+</head>
+
+<body>
+  <div id="wrap">
+    <!-- START : header -->
+    <div id="header">
+      <div class="gnb row">
+        <div class="col">
+          <h1 class="d-inline"><a href=""><img src="../img/logo.png" alt="organico logo" width="150px"></a></h1>
+          <span class="ms-3">관리자 권한 확인</span>
+        </div>
+        <button class="btn btn-outline-dark col-3 btn_color" onclick="location.href='/'">홈페이지로 돌아가기</button>
+      </div>
+    </div>
+    <!-- END : header -->
+    <!-- START : container -->
+    <div id="container">
+      <form action="/admin/login" method="post" class="form-control admin_form">
+        <div class="row">
+          <label for="admin_id" class="col-4">관리자 번호</label>
+          <input type="text" id="admin_id" class="col">
+          <input type="submit" value="확인" class="btn btn-outline-dark btn-lg mt-3 btn_color_outline">
+        </div>
+      </form>
+    </div>
+    <!-- END : container -->
+  </div>
+</body>

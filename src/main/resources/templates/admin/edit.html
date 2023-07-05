@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ko" class="h-100" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ORGANICO | admin</title>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+	<link rel="stylesheet" href="../css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}">
+	<link rel="stylesheet" href="../css/head_footer.css" th:href="@{/css/head_footer.css}">
+	<link rel="stylesheet" href="../css/admin.css" th:href="@{/css/admin.css}">
+	<link rel="icon" type="image/x-icon" href="../img/favicon2.ico">
+	<script src="../../static/js/script.js" th:src="@{/js/script.js}"></script>
+</head>
+
+<body>
+	<div id="wrap">
+		<!-- START : header -->
+		<div id="header">
+			<div class="gnb row">
+				<div class="col">
+					<h1 class="d-inline"><a href="/admin/items"><img src="/img/logo.png" alt="organico logo" width="150px"></a></h1>
+					<span class="ms-3">상품 상세정보</span>
+				</div>
+				<button class="btn btn-outline-dark col-3 btn_color_outline" onclick="location.href='/'">홈페이지로 돌아가기</button>
+			</div>
+		</div>
+		<!-- START : container -->
+		<div id="container">
+			<form method="post" class="form-control">
+				<div class="row">
+					<img src="https://via.placeholder.com/550x700" th:src="@{${item.imgPath}}" alt="" class="col-5 rounded mx-auto d-block p-2">
+				</div>
+				<div class="row m-2">
+					<label for="id" class="col-2">ID</label>
+					<input type="text" class="form-control col" id="id" name="id" th:value="${item.id}" readonly disabled>
+				</div>
+				<div class="row m-2">
+					<label for="name" class="col-2">상품명</label>
+					<input type="text" class="form-control col" id="name" name="name" th:value="${item.name}">
+				</div>
+				<div class="row m-2">
+					<label for="info" class="col-2">상품정보</label>
+					<input type="text" class="form-control col" id="info" name="info" th:value="${item.info}">
+				</div>
+				<div class="row m-2">
+					<label for="price" class="col-2">가격</label>
+					<input type="text" class="form-control col" id="price" name="price" th:value="${item.price}">
+				</div>
+				<div class="row m-2">
+					<label for="origin" class="col-2">원산지</label>
+					<input type="text" class="form-control col" id="origin" name="origin" th:value="${item.origin}">
+				</div>
+				<div class="row m-2">
+					<label for="ingredient" class="col-2">성분</label>
+					<input type="text" class="form-control col" id="ingredient" name="ingredient" th:value="${item.ingredient}">
+				</div>
+				<div class="row m-2">
+					<label for="unit" class="col-2">판매단위</label>
+					<input type="text" class="form-control col" id="unit" name="unit" th:value="${item.unit}">
+				</div>
+				<div class="row p-3">
+					<input type="button" value="취소" class="btn btn-lg btn-outline-dark col me-3 btn_color_outline" th:onclick="|location.href='@{/admin/items/{id}(id=${item.id})}'|">
+					<input type="submit" value="저장" class="btn btn-lg btn-outline-dark col btn_color" th:onclick="|locaiotn.href='@{/admin/items/{id}edit(id=${item.id})}'|">
+				</div>
+			</form>
+		</div>
+		<!-- END : container -->
+	</div>
+</body>
